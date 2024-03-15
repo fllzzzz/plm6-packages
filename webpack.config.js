@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 const __dirname = dirname(fileURLToPath(
 	import.meta.url
@@ -33,12 +34,21 @@ export default {
 			{
 				test: /\.ts(x)?$/,
 				use: 'babel-loader'
+			},
+			{
+				test: /\.css$/,
+				use: [MiniCssExtractPlugin.loader, 'css-loader']
+			},
+			{
+				test: /\.s(c|a)ss$/,
+				use: 'sass-loader'
 			}
 		]
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: resolve(__dirname, 'public/index.html')
-		})
+		}),
+		new MiniCssExtractPlugin(),
 	],
 };

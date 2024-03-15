@@ -7,5 +7,12 @@ export const routes: Array<RouteRecordRaw> = [
 		component: () => import(
 			'@components/index'
 		).then(component => component.index)
-	}
+	},
+	{
+		path: '/table',
+		name: 'table',
+		component: () => import(
+			'@components/table'
+		).then(component => component.elementPlus)
+	},
 ];
