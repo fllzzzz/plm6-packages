@@ -2,6 +2,7 @@ import type { Component } from 'vue';
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
+import 'element-plus/dist/index.css';
 
 export const render = defineComponent(() => {
 	return () => <RouterView>{{
