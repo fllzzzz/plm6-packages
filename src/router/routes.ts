@@ -5,14 +5,23 @@ export const routes: Array<RouteRecordRaw> = [
 		path: '/',
 		name: 'index',
 		component: () => import(
-			'@components/index'
-		).then(component => component.index)
+			'@domain/laborCost/projectLaborCost/index'
+		).then(ctx => ctx.ProjectLaborCost)
 	},
 	{
-		path: '/table',
-		name: 'table',
-		component: () => import(
-			'@components/table'
-		).then(component => component.elementPlus)
+		path: '/production-process',
+		name: 'productionProcess',
+		redirect: {
+			name: 'processLibrary',
+		},
+		children: [
+			{
+				path: 'process-library',
+                name: 'processLibrary',
+                component: () => import(
+					'@domain/productionProcess/processLibrary'
+                ).then(component => component.view)
+			}
+		],
 	},
 ];

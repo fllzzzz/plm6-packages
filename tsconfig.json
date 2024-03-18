@@ -8,7 +8,7 @@
 		"moduleResolution": "Bundler",
 		"paths": {
 			"@router/*": ["./src/router/*"],
-			"@components/*": ["./src/components/*"],
+			"@domain/*": ["./src/domain/*"],
 		}
 	}
 }

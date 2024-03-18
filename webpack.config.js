@@ -26,7 +26,7 @@ export default {
 		],
 		alias: {
 			'@router': resolve(__dirname, 'src/router'),
-			'@components': resolve(__dirname, 'src/components'),
+			'@domain': resolve(__dirname, 'src/domain'),
 		}
 	},
 	module: {
