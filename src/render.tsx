@@ -2,6 +2,8 @@ import type { VNode } from 'vue';
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 import { defineComponent } from 'vue';
 import { RouterView } from 'vue-router';
+import { ElConfigProvider } from 'element-plus';
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'element-plus/dist/index.css';
 
 export const render = defineComponent(() => {
@@ -10,7 +12,7 @@ export const render = defineComponent(() => {
 			Component: VNode;
 			route: RouteLocationNormalizedLoaded
 		}) => {
-			return Component;
+			return <ElConfigProvider locale={zhCn}>{Component}</ElConfigProvider>;
 		}
 	}}</RouterView>
 });

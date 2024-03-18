@@ -1,27 +1,29 @@
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw } from "vue-router";
 
 export const routes: Array<RouteRecordRaw> = [
 	{
-		path: '/',
-		name: 'index',
-		component: () => import(
-			'@domain/laborCost/projectLaborCost/index'
-		).then(ctx => ctx.ProjectLaborCost)
+		path: "/",
+		name: "index",
+		component: () =>
+			import(
+				"@domain/laborCost/projectLaborCost/table"
+			).then(ctx => ctx.Table),
 	},
 	{
-		path: '/production-process',
-		name: 'productionProcess',
+		path: "/production-process",
+		name: "productionProcess",
 		redirect: {
-			name: 'processLibrary',
+			name: "processLibrary",
 		},
 		children: [
 			{
-				path: 'process-library',
-                name: 'processLibrary',
-                component: () => import(
-					'@domain/productionProcess/processLibrary'
-                ).then(component => component.view)
-			}
+				path: "process-library",
+				name: "processLibrary",
+				component: () =>
+					import(
+						"@domain/productionProcess/processLibrary"
+					).then(component => component.view),
+			},
 		],
 	},
 ];

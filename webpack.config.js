@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { devtools } from 'vue';
 
 const __dirname = dirname(fileURLToPath(
 	import.meta.url
@@ -9,6 +10,7 @@ const __dirname = dirname(fileURLToPath(
 
 export default {
 	context: __dirname,
+	devtool: 'source-map',
 	entry: {
 		main: {
 			import: './src/main.ts'
