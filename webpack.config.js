@@ -6,31 +6,11 @@ import {
 } from "node:path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import { generateOptions } from "./webpack-helpers/generators/css-loader.js";
 
 const __dirname = dirname(
   fileURLToPath(import.meta.url)
 );
-
-/** 
-	@param {number} importLoaderNumber 
-		css-loader ->
-		modules ->
-		importLoaders
- **/
-const generateCSSLoaderOption =
-  importLoaderNumber => ({
-    importLoaders: importLoaderNumber,
-    modules: {
-      auto: true,
-      namedExport: true,
-      localIdentName:
-        "[path][name]__[local]--[hash:base64:5]",
-      localIdentContext: resolve(
-        __dirname,
-        "src/domain"
-      ),
-    },
-  });
 
 export default {
   context: __dirname,
@@ -49,6 +29,8 @@ export default {
     alias: {
       "@router": resolve(__dirname, "src/router"),
       "@domain": resolve(__dirname, "src/domain"),
+      "@types": resolve(__dirname, "src/types"),
+      "@components": resolve(__dirname, "src/components"),
     },
   },
   module: {
@@ -66,8 +48,10 @@ export default {
                 {
                   ident: "cssLoader",
                   loader: "css-loader",
-                  options:
-                    generateCSSLoaderOption(0),
+                  options: generateOptions(
+                    0,
+                    resolve(__dirname, "src")
+                  ),
                 },
               ]
             : [
@@ -75,8 +59,10 @@ export default {
                 {
                   ident: "cssLoader",
                   loader: "css-loader",
-                  options:
-                    generateCSSLoaderOption(2),
+                  options: generateOptions(
+                    2,
+                    resolve(__dirname, "src")
+                  ),
                 },
                 {
                   ident: "resolveURLLoader",

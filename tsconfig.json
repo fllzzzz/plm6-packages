@@ -7,8 +7,10 @@
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
 		"paths": {
+			"@types": ["./src/types"],
 			"@router/*": ["./src/router/*"],
 			"@domain/*": ["./src/domain/*"],
+			"@components/*": ["./src/components/*"],
 		},
 		"plugins": [
 			{
