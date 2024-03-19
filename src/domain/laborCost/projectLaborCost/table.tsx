@@ -142,7 +142,14 @@ export const Table = defineComponent((props, { emit }) => {
 		["序号", ({ index }) => index + 1],
 		["项目名称", ({ row }) => row.name],
 		["项目模式", ({ row }) => row.mode],
-		["统计截止日", ({ row }) => row.date],
+		[
+			"统计截止日",
+			({ row }) => (
+				<span style="position: relative">
+					<Date type="date" formate="YYYY-MM-DD"></Date>
+				</span>
+			),
+		],
 		[
 			"配置价格修改场景",
 			({ row }) =>

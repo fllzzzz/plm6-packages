@@ -1,5 +1,6 @@
 import { defineComponent, ref, watch } from "vue";
 import { ElDatePicker } from "element-plus";
+import { container } from './index.module.scss';
 
 interface Props {
 	type:
@@ -21,18 +22,21 @@ type Emits = {
 	select: (date: string) => boolean;
 };
 
-export const Date = defineComponent<Props, Emits>(
-	(props, { emit }) => {
-		const date = ref<string>();
-		watch(date, value => emit("select", value));
-		return () => (
+export const DatePicker = defineComponent<
+	Props,
+	Emits
+>((props, { emit }) => {
+	const date = ref<string>();
+	watch(date, value => emit("select", value));
+	return () => (
+		<div class={container}>
 			<ElDatePicker
-				v-model={date}
+				v-model={date.value}
 				type={props.type}
-				clearable={props.clearable}
+				clearable={props.clearable ? true : false}
 				format={props.formate}
 				valueFormat={props.formate}
 			></ElDatePicker>
-		);
-	}
-);
+		</div>
+	);
+}, {props: ['clearable', 'formate', 'type']});
