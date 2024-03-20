@@ -31,6 +31,7 @@ export default {
       "@domain": resolve(__dirname, "src/domain"),
       "@types": resolve(__dirname, "src/types"),
       "@components": resolve(__dirname, "src/components"),
+      "@styles": resolve(__dirname, "src/styles"),
     },
   },
   module: {

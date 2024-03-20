@@ -11,6 +11,7 @@
 			"@router/*": ["./src/router/*"],
 			"@domain/*": ["./src/domain/*"],
 			"@components/*": ["./src/components/*"],
+			"@styles/*": ["./src/styles/*"],
 		},
 		"plugins": [
 			{

@@ -10,7 +10,7 @@ interface Configure<T> {
   data: T[];
   contextMap: Map<
     string,
-    (ctx: Context<T>) => VNode
+    (ctx: Context<T>) => VNode | void
   >;
 }
 
@@ -24,14 +24,14 @@ interface Context<T> {
 }
 
 export const generateDataTable = <
-  T extends Record<string, unknown>
+  T extends Record<string, any>
 >(
   configure: Configure<T>
 ) =>
   defineComponent<typeof configure.props>(
     props => {
       return () => (
-        <ElTable data={configure.data}>
+        <ElTable data={configure.data} border maxHeight={'100vh'}>
           {Array.from(
             configure.contextMap.entries()
           ).map(ctx => (

@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  width: 500px;
+  height: 300px;
+
+  &__header {
+    flex: 0 1 10%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    &__left-side {
+      flex: 0 1 35%;
+      border: 2px dotted red;
+    }
+
+    &__right-side {
+      flex: 0 1 15%;
+      border: 2px dotted black;
+    }
+
+    &__left-side,
+    &__right-side {
+      height: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+    }
+  }
+
+  &__body {
+    flex: 0 1 88%;
+	display: flex;
+  }
+
+  &__header,
+  &__body {
+    width: 100%;
+  }
+}

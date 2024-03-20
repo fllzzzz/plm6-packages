@@ -1,25 +1,9 @@
-import { generateDataTable } from '@components/DataTable';
-import { defineComponent, h } from 'vue';
+import { Container } from "@domain/laborCost/projectLaborCost/view/container";
+import { Selecter } from "@components/Selecter";
+import {DatePicker} from '@components/DatePicker';
+import { InputBox } from "@components/InputBox";
+import { ref, watch } from "vue";
 
-const data = [
-	{
-		T: 10
-	},
-	{
-		T: 10
-	},
-	{
-		T: 10
-	},
-];
-
-
-
-export const DataTable = generateDataTable<typeof data[0]>({
-	data,
-	contextMap: new Map([
-		['第一列', ({row, column, index}) => <span>{row.T}</span>],
-	]),
-});
-
-export const default_ = <DataTable></DataTable>
+export default <Container>{{
+	body: () => 123
+}}</Container>
