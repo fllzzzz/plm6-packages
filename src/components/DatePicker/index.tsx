@@ -1,11 +1,56 @@
+import type { Ref } from "vue";
 import { defineComponent } from "vue";
 import { ElDatePicker } from "element-plus";
-import styles from "./index.module.scss";
+import styleLib from "@styles/lib.module.scss";
 
-export const DatePicker = defineComponent(() => {
-  return () => (
-    <date-picker class={styles.container}>
-      <ElDatePicker></ElDatePicker>
-    </date-picker>
-  );
-});
+interface Props {
+  type:
+    | "year"
+    | "years"
+    | "month"
+    | "date"
+    | "dates"
+    | "datetime"
+    | "week"
+    | "datetimerange"
+    | "daterange"
+    | "monthrange";
+  format: string;
+  time: Ref<string | [string, string]>;
+  placeholder?: {
+    default?: string;
+    start?: string;
+    end?: string;
+  };
+  rangeSeparator?: string;
+}
+
+export const DatePicker = defineComponent<Props>(
+  props => {
+    return () => (
+      <div class={styleLib.componentWrapper}>
+        <ElDatePicker
+          v-model={props.time.value}
+          type={props.type}
+          format={props.format}
+          valueFormat={props.format}
+          placeholder={props.placeholder?.default}
+          startPlaceholder={
+            props.placeholder?.start
+          }
+          endPlaceholder={props.placeholder?.end}
+          range-separator={props.rangeSeparator}
+        ></ElDatePicker>
+      </div>
+    );
+  },
+  {
+    props: [
+      "format",
+      "time",
+      "placeholder",
+      "rangeSeparator",
+      "type",
+    ],
+  }
+);

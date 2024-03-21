@@ -1,0 +1,68 @@
+@use "@styles/lib.module";
+
+.container {
+  @include lib.flex(column, nowrap) {
+    justify-content: space-between;
+  }
+  /*   @include lib.fillViewPort; */
+  width: 50vw;
+}
+
+.header {
+  @include lib.flex {
+    justify-content: space-between;
+  }
+  flex: 0 1 6%;
+
+  &__left-side {
+    flex: 0 1 30%;
+    align-items: center;
+    & > div:nth-child(2) {
+      margin-left: 3%;
+      height: 50%;
+    }
+  }
+
+  &__right-side {
+    flex: 0 1 8%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__left-side,
+  &__right-side {
+    @include lib.flex;
+    @include lib.follower;
+  }
+}
+
+.body {
+  @include lib.flex;
+  flex: 0 1 92%;
+}
+
+.body,
+.header {
+  @include lib.follower;
+}
+
+.cell-container {
+  @include lib.follower;
+  @include lib.flex {
+    justify-content: space-between;
+  }
+  & > div {
+    width: 48%;
+  }
+}
+
+.svg-container {
+  @include lib.follower;
+  @include lib.flex {
+    justify-content: space-between;
+  }
+  & > svg,
+  & > span {
+    flex: 0 1 20%;
+  }
+}

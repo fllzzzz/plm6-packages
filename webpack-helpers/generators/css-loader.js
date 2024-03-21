@@ -10,6 +10,7 @@ export const generateOptions = (
       namedExport: false,
       localIdentName: name,
       localIdentContext: contextPath,
+      exportLocalsConvention: 'camelCaseOnly',
     },
   };
 };

@@ -5,6 +5,7 @@ import { RouterView } from 'vue-router';
 import { ElConfigProvider } from 'element-plus';
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'element-plus/dist/index.css';
+import '@styles/general.css';
 
 export const render = defineComponent(() => {
 	return () => <RouterView>{{

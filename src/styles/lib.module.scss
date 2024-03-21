@@ -32,3 +32,11 @@
   width: 100vw;
   height: 100vh;
 }
+
+@mixin stroke($size: 2px, $color: red) {
+  border: $size dotted $color;
+};
+
+.component-wrapper {
+  @include componentWrapper;
+}
